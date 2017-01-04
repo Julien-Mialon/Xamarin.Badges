@@ -1,4 +1,4 @@
-﻿using System;
+﻿using UIKit;
 
 namespace Xamarin.Badges.iOS
 {
@@ -6,12 +6,12 @@ namespace Xamarin.Badges.iOS
 	{
 		public void Clear()
 		{
-			throw new NotImplementedException();
+			UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
 		}
 
 		public void Set(int badgeCount)
 		{
-			throw new NotImplementedException();
+			UIApplication.SharedApplication.ApplicationIconBadgeNumber = badgeCount;
 		}
 	}
 }
