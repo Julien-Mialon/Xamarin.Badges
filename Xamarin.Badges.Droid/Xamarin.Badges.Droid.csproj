@@ -43,7 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Badger.cs" />
     <Compile Include="BadgeService.cs" />
+    <Compile Include="Helpers\BroadcastHelper.cs" />
+    <Compile Include="Implementations\Base\BaseIntentBadger.cs" />
+    <Compile Include="Implementations\DefaultBadger.cs" />
+    <Compile Include="Implementations\AsusHomeBadger.cs" />
+    <Compile Include="Implementations\ApexHomeBadger.cs" />
+    <Compile Include="Implementations\AdwHomeBadger.cs" />
+    <Compile Include="Implementations\HtcHomeBadger.cs" />
+    <Compile Include="Implementations\HuaweiHomeBadger.cs" />
+    <Compile Include="Implementations\LGHomeBadger.cs" />
+    <Compile Include="Implementations\NovaBadger.cs" />
+    <Compile Include="Implementations\OppoHomeBadger.cs" />
+    <Compile Include="Implementations\SamsungHomeBadger.cs" />
+    <Compile Include="Implementations\SonyHomeBadger.cs" />
+    <Compile Include="Implementations\XiaomiHomeBadger.cs" />
+    <Compile Include="Implementations\ZukHomeBadger.cs" />
+    <Compile Include="Interfaces\IBadger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
