@@ -16,6 +16,9 @@ namespace Xamarin.Badges.Droid
 		private static IBadger _shortcutBadger;
 		private static ComponentName _componentName;
 
+		private static bool _initialized;
+		private static readonly object Mutex = new object();
+
 		static Badger()
 		{
 			Badgers = new List<IBadger>
@@ -59,56 +62,70 @@ namespace Xamarin.Badges.Droid
 
 		private static bool InitBadger(Context context)
 		{
-			Intent launchIntent = context.PackageManager.GetLaunchIntentForPackage(context.PackageName);
-			if (launchIntent == null)
+			if (_initialized)
 			{
-				Log.Error("Badger", "Unable to find launch intent for package " + context.PackageName);
-				return false;
+				return _shortcutBadger != null;
 			}
 
-			_componentName = launchIntent.Component;
-
-			Intent intent = new Intent(Intent.ActionMain);
-			intent.AddCategory(Intent.CategoryHome);
-			ResolveInfo resolveInfo = context.PackageManager.ResolveActivity(intent, PackageInfoFlags.MatchDefaultOnly);
-
-			if (resolveInfo == null || resolveInfo.ActivityInfo.Name.ToLowerInvariant().Contains("resolver"))
+			lock (Mutex)
 			{
-				return false;
-			}
+				if (_initialized)
+				{
+					return _shortcutBadger != null;
+				}
+				_initialized = true;
 
-			string currentHomePackage = resolveInfo.ActivityInfo.PackageName;
+				Intent launchIntent = context.PackageManager.GetLaunchIntentForPackage(context.PackageName);
+				if (launchIntent == null)
+				{
+					Log.Error("Badger", "Unable to find launch intent for package " + context.PackageName);
+					return false;
+				}
 
-			foreach (IBadger badger in Badgers)
-			{
-				if (badger.SupportedLaunchers.Contains(currentHomePackage))
-				{
-					_shortcutBadger = badger;
-					break;
-				}
-			}
-			
-			if (_shortcutBadger == null)
-			{
-				if (Build.Manufacturer.Equals("Xiaomi", StringComparison.InvariantCultureIgnoreCase))
-				{
-					_shortcutBadger = new XiaomiHomeBadger();
-				}
-				else if (Build.Manufacturer.Equals("ZUK", StringComparison.InvariantCultureIgnoreCase))
-				{
-					_shortcutBadger = new ZukHomeBadger();
-				}
-				if (Build.Manufacturer.Equals("OPPO", StringComparison.InvariantCultureIgnoreCase))
-				{
-					_shortcutBadger = new OppoHomeBadger();
-				}
-				else
-				{
-					_shortcutBadger = new DefaultBadger();
-				}
-			}
+				_componentName = launchIntent.Component;
 
-			return true;
+				Intent intent = new Intent(Intent.ActionMain);
+				intent.AddCategory(Intent.CategoryHome);
+				ResolveInfo resolveInfo = context.PackageManager.ResolveActivity(intent, PackageInfoFlags.MatchDefaultOnly);
+
+				if (resolveInfo == null || resolveInfo.ActivityInfo.Name.ToLowerInvariant().Contains("resolver"))
+				{
+					return false;
+				}
+
+				string currentHomePackage = resolveInfo.ActivityInfo.PackageName;
+
+				foreach (IBadger badger in Badgers)
+				{
+					if (badger.SupportedLaunchers.Contains(currentHomePackage))
+					{
+						_shortcutBadger = badger;
+						break;
+					}
+				}
+
+				if (_shortcutBadger == null)
+				{
+					if (Build.Manufacturer.Equals("Xiaomi", StringComparison.InvariantCultureIgnoreCase))
+					{
+						_shortcutBadger = new XiaomiHomeBadger();
+					}
+					else if (Build.Manufacturer.Equals("ZUK", StringComparison.InvariantCultureIgnoreCase))
+					{
+						_shortcutBadger = new ZukHomeBadger();
+					}
+					if (Build.Manufacturer.Equals("OPPO", StringComparison.InvariantCultureIgnoreCase))
+					{
+						_shortcutBadger = new OppoHomeBadger();
+					}
+					else
+					{
+						_shortcutBadger = new DefaultBadger();
+					}
+				}
+
+				return true;
+			}
 		}
 	}
 }
