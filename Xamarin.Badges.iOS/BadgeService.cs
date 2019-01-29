@@ -6,12 +6,20 @@ namespace Xamarin.Badges.iOS
 	{
 		public void Clear()
 		{
-			UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
+			UIApplication.SharedApplication.InvokeOnMainThread(() =>
+			{
+				//do not inline
+				UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
+			});
 		}
 
 		public void Set(int badgeCount)
 		{
-			UIApplication.SharedApplication.ApplicationIconBadgeNumber = badgeCount;
+			UIApplication.SharedApplication.InvokeOnMainThread(() =>
+			{
+				//do not inline
+				UIApplication.SharedApplication.ApplicationIconBadgeNumber = badgeCount;
+			});
 		}
 	}
 }
