@@ -1,5 +1,6 @@
 using System;
 using Android.Content;
+using Android.OS;
 using Android.Runtime;
 using Xamarin.Badges.Droid.Helpers;
 using Xamarin.Badges.Droid.Interfaces;
@@ -35,7 +36,7 @@ namespace Xamarin.Badges.Droid.Implementations
 
 		public string[] SupportedLaunchers => new[]
 		{
-			"com.sonyericsson.home"
+			"com.sonyericsson.home", "com.sonymobile.home"
 		};
 
 		private static bool ExecuteBadgeByBroadcast(Context context, ComponentName componentName, int badgeCount)
@@ -81,13 +82,20 @@ namespace Xamarin.Badges.Droid.Implementations
 			contentValues.Put(PROVIDER_COLUMNS_PACKAGE_NAME, componentName.PackageName);
 			contentValues.Put(PROVIDER_COLUMNS_ACTIVITY_NAME, componentName.ClassName);
 
-			if (_queryHandler == null)
+			if (Looper.MyLooper() == Looper.MainLooper)
 			{
-				_queryHandler = new MyAsyncQueryHandler(context.ApplicationContext.ContentResolver);
+				if (_queryHandler == null)
+				{
+					_queryHandler = new MyAsyncQueryHandler(context.ApplicationContext.ContentResolver);
+				}
+				// The badge must be inserted on a background thread
+				_queryHandler.StartInsert(0, null, BadgeContentUri, contentValues);
 			}
-
-			// The badge must be inserted on a background thread
-			_queryHandler.StartInsert(0, null, BadgeContentUri, contentValues);
+			else
+			{
+				context.ApplicationContext.ContentResolver.Insert(BadgeContentUri, contentValues);
+			}
+			
 			return true;
 		}
 

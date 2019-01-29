@@ -23,7 +23,7 @@ namespace Xamarin.Badges.Droid.Implementations
 			intent2.PutExtra(PACKAGENAME, component.PackageName);
 			intent2.PutExtra(COUNT, badgeCount);
 
-			return BroadcastHelper.SendBroadcast(context, intent1, intent2);
+			return BroadcastHelper.SendBroadcast(context, intent1) & BroadcastHelper.SendBroadcast(context, intent2);
 		}
 
 		public string[] SupportedLaunchers => new []

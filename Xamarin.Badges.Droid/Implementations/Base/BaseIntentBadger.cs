@@ -1,3 +1,4 @@
+using System;
 using Android.Content;
 using Xamarin.Badges.Droid.Helpers;
 using Xamarin.Badges.Droid.Interfaces;
@@ -19,7 +20,6 @@ namespace Xamarin.Badges.Droid.Implementations.Base
 
 		protected virtual void AddExtraToIntent(Intent intent, Context context, ComponentName component, int badgeCount)
 		{
-			
 		}
 
 		protected void AddExtra(Intent intent, string key, string value)
@@ -28,6 +28,7 @@ namespace Xamarin.Badges.Droid.Implementations.Base
 			{
 				return;
 			}
+
 			intent.PutExtra(key, value);
 		}
 
@@ -37,6 +38,7 @@ namespace Xamarin.Badges.Droid.Implementations.Base
 			{
 				return;
 			}
+
 			intent.PutExtra(key, value);
 		}
 
@@ -44,6 +46,8 @@ namespace Xamarin.Badges.Droid.Implementations.Base
 		protected abstract string PackageParameterName { get; }
 		protected abstract string ClassParameterName { get; }
 		protected abstract string CountParameterName { get; }
+
+		protected virtual bool UseDefault => false;
 
 		public abstract string[] SupportedLaunchers { get; }
 	}

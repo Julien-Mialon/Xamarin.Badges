@@ -13,7 +13,7 @@ namespace Xamarin.Badges.Droid.Implementations
 
 		public override bool Set(Context context, ComponentName component, int badgeCount)
 		{
-			if (Build.VERSION.SdkInt >= BuildVersionCodes.LollipopMr1) //new samsung >= 5.1 use default badger system
+			if (Build.VERSION.SdkInt >= BuildVersionCodes.LollipopMr1 && base.IsSupported(context)) //new samsung >= 5.1 use default badger system
 			{
 				//use default badger
 				return base.Set(context, component, badgeCount);
