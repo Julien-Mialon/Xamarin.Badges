@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Xamarin.Badges.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Xamarin.Badges.iOS</AssemblyName>
+    <AssemblyName>Xamarin.Badges</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

@@ -5,11 +5,11 @@ using Android.App;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Xamarin.Badges.Droid")]
+[assembly: AssemblyTitle("Xamarin.Badges")]
 [assembly: AssemblyDescription("Access to application icon badge for Xamarin Android")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ideine")]
-[assembly: AssemblyProduct("Xamarin.Badges.Droid")]
+[assembly: AssemblyProduct("Xamarin.Badges")]
 [assembly: AssemblyCopyright("Copyright © Ideine 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

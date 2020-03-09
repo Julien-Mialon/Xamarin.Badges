@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Badges", "Xamarin.Badges\Xamarin.Badges.csproj", "{89FFA1D2-8DC8-4AAB-807E-EFEE8C4B1F1F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Badges.iOS", "Xamarin.Badges.iOS\Xamarin.Badges.iOS.csproj", "{D07D6CF5-D18E-44C5-A128-9B89DEFEE357}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Badges.Droid", "Xamarin.Badges.Droid\Xamarin.Badges.Droid.csproj", "{764A49CF-F711-48C3-9458-3159F7746AB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Badges", "Xamarin.Badges\Xamarin.Badges.csproj", "{D3F7900B-7341-49D2-9F36-823E4DE83B72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{89FFA1D2-8DC8-4AAB-807E-EFEE8C4B1F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89FFA1D2-8DC8-4AAB-807E-EFEE8C4B1F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89FFA1D2-8DC8-4AAB-807E-EFEE8C4B1F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89FFA1D2-8DC8-4AAB-807E-EFEE8C4B1F1F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D07D6CF5-D18E-44C5-A128-9B89DEFEE357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D07D6CF5-D18E-44C5-A128-9B89DEFEE357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D07D6CF5-D18E-44C5-A128-9B89DEFEE357}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{764A49CF-F711-48C3-9458-3159F7746AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{764A49CF-F711-48C3-9458-3159F7746AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{764A49CF-F711-48C3-9458-3159F7746AB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3F7900B-7341-49D2-9F36-823E4DE83B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3F7900B-7341-49D2-9F36-823E4DE83B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3F7900B-7341-49D2-9F36-823E4DE83B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3F7900B-7341-49D2-9F36-823E4DE83B72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
