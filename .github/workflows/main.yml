@@ -1,0 +1,26 @@
+name: Xamarin.Badges-CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+      
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v1
+      
+    - name: Setup NuGet.exe 
+      uses: NuGet/setup-nuget@v1.0.2
+      
+    - name: Build projet
+      uses: msbuild /p:platform="any cpu" /p:configuration="release"
+      
+    - name: Create package
+      uses: nuget pack package.nuspec
