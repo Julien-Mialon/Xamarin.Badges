@@ -27,3 +27,28 @@ jobs:
       
     - name: Create package
       run: nuget pack package.nuspec
+  
+    - uses: actions/upload-artifact@master
+      with: 
+        name: nuget-packages
+        path: out/
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    steps:
+    - uses: actions/download-artifact@master
+      with:
+        name: nuget-packages
+        path: ./out/
+
+    - name: Setup NuGet.exe 
+      uses: NuGet/setup-nuget@v1.0.2
+
+    - name: Add GH Package registry
+      run: nuget source Add -Name "GitHub" -Source "https://nuget.pkg.github.com/VJubert/index.json" -UserName VJubert -Password ${{ secrets.GITHUB_PACKAGE_TOKEN }}
+      shell: bash
+
+    - name: Push nuget package
+      run: nuget push -Source "GitHub" ./out/*.nupkg
+      shell: bash
