@@ -23,7 +23,7 @@ jobs:
       run: nuget restore
       
     - name: Build projet
-      run: msbuild /p:platform="any cpu" /p:configuration="release"
+      run: msbuild /p:platform="any cpu" /p:configuration="release" /p:OutDir=./out
       
     - name: Create package
       run: nuget pack package.nuspec
