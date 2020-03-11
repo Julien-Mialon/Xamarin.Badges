@@ -26,7 +26,7 @@ jobs:
       run: msbuild /p:platform="any cpu" /p:configuration="release"
       
     - name: Create package
-      run: nuget pack package.nuspec --OutputDirectory ./out
+      run: nuget pack package.nuspec -OutputDirectory ./out
   
     - uses: actions/upload-artifact@master
       with: 
