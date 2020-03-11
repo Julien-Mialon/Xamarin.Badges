@@ -23,10 +23,10 @@ jobs:
       run: nuget restore
       
     - name: Build projet
-      run: msbuild /p:platform="any cpu" /p:configuration="release" /p:OutDir=./out
+      run: msbuild /p:platform="any cpu" /p:configuration="release"
       
     - name: Create package
-      run: nuget pack package.nuspec
+      run: nuget pack package.nuspec -o ./out
   
     - uses: actions/upload-artifact@master
       with: 
