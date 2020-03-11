@@ -20,7 +20,7 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
       
     - name: Build projet
-      uses: msbuild /p:platform="any cpu" /p:configuration="release"
+      run: msbuild /p:platform="any cpu" /p:configuration="release"
       
     - name: Create package
-      uses: nuget pack package.nuspec
+      run: nuget pack package.nuspec
