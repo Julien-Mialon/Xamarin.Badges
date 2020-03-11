@@ -18,6 +18,9 @@ jobs:
       
     - name: Setup NuGet.exe 
       uses: NuGet/setup-nuget@v1.0.2
+    
+    - name: Nuget restore
+      run: nuget restore
       
     - name: Build projet
       run: msbuild /p:platform="any cpu" /p:configuration="release"
