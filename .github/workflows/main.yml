@@ -45,10 +45,6 @@ jobs:
     - name: Setup NuGet.exe 
       uses: NuGet/setup-nuget@v1.0.2
 
-    - name: Add GH Package registry
-      run: nuget source Add -Name "GitHub" -Source "https://nuget.pkg.github.com/VJubert/index.json" -UserName VJubert -Password ${{ secrets.GITHUB_PACKAGE_TOKEN }}
-      shell: bash
-
     - name: Push nuget package
       run: nuget push -Source "GitHub" ./out/*.nupkg
       shell: bash
