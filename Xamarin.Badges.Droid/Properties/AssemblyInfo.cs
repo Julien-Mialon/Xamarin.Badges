@@ -10,7 +10,7 @@ using Android.App;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ideine")]
 [assembly: AssemblyProduct("Xamarin.Badges")]
-[assembly: AssemblyCopyright("Copyright © Ideine 2017")]
+[assembly: AssemblyCopyright("Copyright © Ideine 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
@@ -19,6 +19,11 @@ using Android.App;
 
 // Android permissions for badge access for each manufacturer / launcher
 
+//for Android
+[assembly: UsesPermission("com.android.launcher.permission.READ_SETTINGS")]
+[assembly: UsesPermission("com.android.launcher.permission.WRITE_SETTINGS")]
+[assembly: UsesPermission("com.android.launcher.permission.INSTALL_SHORTCUT")]
+[assembly: UsesPermission("com.android.launcher.permission.UNINSTALL_SHORTCUT")]
 //for Samsung
 [assembly: UsesPermission("com.sec.android.provider.badge.permission.READ")]
 [assembly: UsesPermission("com.sec.android.provider.badge.permission.WRITE")]
@@ -41,3 +46,6 @@ using Android.App;
 //for OPPO
 [assembly: UsesPermission("com.oppo.launcher.permission.READ_SETTINGS")]
 [assembly: UsesPermission("com.oppo.launcher.permission.WRITE_SETTINGS")]
+//for EvMe
+[assembly: UsesPermission("me.everything.badger.permission.BADGE_COUNT_READ")]
+[assembly: UsesPermission("me.everything.badger.permission.BADGE_COUNT_WRITE")]
