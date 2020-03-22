@@ -18,12 +18,12 @@ steps:
   - task: NuGetCommand@2
     inputs:
       command: 'restore'
-      restoreSolution: '*.sln'
+      restoreSolution: 'Xamarin.Badges.sln'
 
   - task: VSBuild@1
     displayName: Build Package
     inputs:
-      solution: *.sln
+      solution: Xamarin.Badges.sln
       platform: 'any cpu'
       configuration: 'release'
       maximumCpuCount: true
