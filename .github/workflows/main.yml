@@ -41,10 +41,10 @@ jobs:
       with:
         name: nuget-packages
         path: ./out/
-
-    - name: Setup NuGet.exe 
-      uses: NuGet/setup-nuget@v1.0.2
+    
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1.4.0
 
     - name: Push nuget package
-      run: nuget push -Source "GitHub" ./out/*.nupkg
+      run: dotnet nuget push "./out/*nupkg" --source "github"
       shell: bash
