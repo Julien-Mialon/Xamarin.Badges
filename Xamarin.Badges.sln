@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Badges.Droid", "Xam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Badges", "Xamarin.Badges\Xamarin.Badges.csproj", "{D3F7900B-7341-49D2-9F36-823E4DE83B72}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{B36C2700-3F1A-42F8-BA1F-B23CA97BB6E0}"
+ProjectSection(SolutionItems) = preProject
+	package.nuspec = package.nuspec
+	.azure-pipelines.ci.yml = .azure-pipelines.ci.yml
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
