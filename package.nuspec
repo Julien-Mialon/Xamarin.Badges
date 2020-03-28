@@ -20,8 +20,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="Xamarin.Badges\bin\Release\netstandard2.0\*.dll" target="lib\netstandard2.0"/>
-    <file src="Xamarin.Badges.Droid\bin\Release\*.dll" target="lib\monoandroid90"/>
-    <file src="Xamarin.Badges.iOS\bin\Release\*.dll" target="lib\xamarinios10"/>
+    <file src="Xamarin.Badges\bin\Release\netstandard2.0\*.dll;Xamarin.Badges\bin\Release\netstandard2.0\*.pdb" target="lib\netstandard2.0"/>
+    <file src="Xamarin.Badges.Droid\bin\Release\*.dll;Xamarin.Badges.Droid\bin\Release\*.pdb" target="lib\monoandroid90"/>
+    <file src="Xamarin.Badges.iOS\bin\Release\*.dll;Xamarin.Badges.iOS\bin\Release\*.pdb" target="lib\xamarinios10"/>
   </files>
 </package>
