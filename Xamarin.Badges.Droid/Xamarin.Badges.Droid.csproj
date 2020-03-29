@@ -14,7 +14,6 @@
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -70,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.Badges\Xamarin.Badges.csproj">
-      <Project>{89ffa1d2-8dc8-4aab-807e-efee8c4b1f1f}</Project>
+      <Project>{D3F7900B-7341-49D2-9F36-823E4DE83B72}</Project>
       <Name>Xamarin.Badges</Name>
     </ProjectReference>
   </ItemGroup>

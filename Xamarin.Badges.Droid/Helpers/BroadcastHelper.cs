@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
