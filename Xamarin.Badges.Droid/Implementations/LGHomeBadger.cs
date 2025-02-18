@@ -1,11 +1,10 @@
-namespace Xamarin.Badges.Droid.Implementations
+namespace Xamarin.Badges.Implementations;
+
+internal class LGHomeBadger : DefaultBadger
 {
-	internal class LGHomeBadger : DefaultBadger
+	public override string[] SupportedLaunchers => new string[]
 	{
-		public override string[] SupportedLaunchers => new string[]
-		{
-			"com.lge.launcher",
-			"com.lge.launcher2"
-		};
-	}
+		"com.lge.launcher",
+		"com.lge.launcher2"
+	};
 }

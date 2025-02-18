@@ -1,17 +1,16 @@
-using Xamarin.Badges.Droid.Implementations.Base;
+using Xamarin.Badges.Implementations.Base;
 
-namespace Xamarin.Badges.Droid.Implementations
+namespace Xamarin.Badges.Implementations;
+
+internal class EverythingMeHomeBadger : BaseContentManagerBadger
 {
-	internal class EverythingMeHomeBadger : BaseContentManagerBadger
-	{
-		protected override string ContentUri => "content://me.everything.badger/apps";
-		protected override string ColumnPackageName => "package_name";
-		protected override string ColumnActivityName => "activity_name";
-		protected override string ColumnCount => "count";
+	protected override string ContentUri => "content://me.everything.badger/apps";
+	protected override string ColumnPackageName => "package_name";
+	protected override string ColumnActivityName => "activity_name";
+	protected override string ColumnCount => "count";
 
-		public override string[] SupportedLaunchers => new string[]
-		{
-			"me.everything.launcher"
-		};
-	}
+	public override string[] SupportedLaunchers => new string[]
+	{
+		"me.everything.launcher"
+	};
 }

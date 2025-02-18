@@ -1,11 +1,10 @@
 using Android.Content;
 
-namespace Xamarin.Badges.Droid.Interfaces
-{
-	internal interface IBadger
-	{
-		bool Set(Context context, ComponentName component, int badgeCount);
+namespace Xamarin.Badges.Interfaces;
 
-		string[] SupportedLaunchers { get; }
-	}
+internal interface IBadger
+{
+	bool Set(Context context, ComponentName component, int badgeCount);
+
+	string[] SupportedLaunchers { get; }
 }

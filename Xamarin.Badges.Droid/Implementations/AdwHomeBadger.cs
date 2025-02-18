@@ -1,18 +1,17 @@
-using Xamarin.Badges.Droid.Implementations.Base;
+using Xamarin.Badges.Implementations.Base;
 
-namespace Xamarin.Badges.Droid.Implementations
+namespace Xamarin.Badges.Implementations;
+
+internal class AdwHomeBadger : BaseIntentBadger
 {
-	internal class AdwHomeBadger : BaseIntentBadger
-	{
-		protected override string IntentName => "org.adw.launcher.counter.SEND";
-		protected override string PackageParameterName => "PNAME";
-		protected override string ClassParameterName => "CNAME";
-		protected override string CountParameterName => "COUNT";
+	protected override string IntentName => "org.adw.launcher.counter.SEND";
+	protected override string PackageParameterName => "PNAME";
+	protected override string ClassParameterName => "CNAME";
+	protected override string CountParameterName => "COUNT";
 
-		public override string[] SupportedLaunchers => new[]
-		{
-			"org.adw.launcher",
-			"org.adwfreak.launcher"
-		};
-	}
+	public override string[] SupportedLaunchers => new[]
+	{
+		"org.adw.launcher",
+		"org.adwfreak.launcher"
+	};
 }

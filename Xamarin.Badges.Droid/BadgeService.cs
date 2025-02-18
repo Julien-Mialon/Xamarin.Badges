@@ -33,25 +33,24 @@ using Android.Content;
 [assembly: UsesPermission("me.everything.badger.permission.BADGE_COUNT_READ")]
 [assembly: UsesPermission("me.everything.badger.permission.BADGE_COUNT_WRITE")]
 
-namespace Xamarin.Badges.Droid
+namespace Xamarin.Badges;
+
+public class BadgeService : IBadgeService
 {
-	public class BadgeService : IBadgeService
+	private readonly Context _context;
+
+	public BadgeService(Context context)
 	{
-		private readonly Context _context;
+		_context = context;
+	}
 
-		public BadgeService(Context context)
-		{
-			_context = context;
-		}
+	public void Clear()
+	{
+		Badger.ApplyBadgeCount(_context, 0);
+	}
 
-		public void Clear()
-		{
-			Badger.ApplyBadgeCount(_context, 0);
-		}
-
-		public void Set(int badgeCount)
-		{
-			Badger.ApplyBadgeCount(_context, badgeCount);
-		}
+	public void Set(int badgeCount)
+	{
+		Badger.ApplyBadgeCount(_context, badgeCount);
 	}
 }
