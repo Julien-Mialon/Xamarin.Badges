@@ -1,25 +1,24 @@
-﻿using UIKit;
+using UIKit;
 
-namespace Xamarin.Badges.iOS
+namespace Xamarin.Badges.iOS;
+
+public class BadgeService : IBadgeService
 {
-	public class BadgeService : IBadgeService
+	public void Clear()
 	{
-		public void Clear()
+		UIApplication.SharedApplication.InvokeOnMainThread(() =>
 		{
-			UIApplication.SharedApplication.InvokeOnMainThread(() =>
-			{
-				//do not inline
-				UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
-			});
-		}
+			//do not inline
+			UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
+		});
+	}
 
-		public void Set(int badgeCount)
+	public void Set(int badgeCount)
+	{
+		UIApplication.SharedApplication.InvokeOnMainThread(() =>
 		{
-			UIApplication.SharedApplication.InvokeOnMainThread(() =>
-			{
-				//do not inline
-				UIApplication.SharedApplication.ApplicationIconBadgeNumber = badgeCount;
-			});
-		}
+			//do not inline
+			UIApplication.SharedApplication.ApplicationIconBadgeNumber = badgeCount;
+		});
 	}
 }
